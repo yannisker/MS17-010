@@ -1,16 +1,14 @@
 #!/bin/bash
 
-echo "
-######################
-###\ \##/ /#| |#/ /###
-####\ \/ /##| |/ /####
-#####\  /###| |\ \####
-#####/ /####| |#\ \###
-####/_/#####|_|##\_\##
-######################
+printf '
+__  __                  _        __ __
+\ \/ /___ _____  ____  (_)____  / //_/
+ \  / __ `/ __ \/ __ \/ / ___/ / ,<
+ / / /_/ / / / / / / / (__  ) / /| |
+/_/\__,_/_/ /_/_/ /_/_/____(_)_/ |_|
 
-"
 
+'
 trap 'printf "\n";stop;exit 1' 2
 
 menu() {
@@ -23,13 +21,13 @@ read -p $'\n\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Choose an option: \e[0m\en' op
 
 
 if [[ $option == 1 ]]; then
-gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/pentest-hote.sh
+gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/final_01/intrusion/pentest-hote.sh
 
 elif [[ $option == 2 ]]; then
-gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/pentest-sousreseau.sh
+gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/final_01/intrusion/pentest-sousreseau.sh
 
 elif [[ $option == 3 ]]; then
-gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/pentest-global.sh
+gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/final_01/intrusion/pentest-global.sh
 
 else
 printf "\e[1;93m [!] Invalid option!\e[0m\n"
