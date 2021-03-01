@@ -21,13 +21,13 @@ read -p $'\n\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Choose an option: \e[0m\en' op
 
 
 if [[ $option == 1 ]]; then
-gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/final_01/intrusion/pentest-hote.sh
+gnome-terminal -- bash -c intrusion/pentest-hote.sh
 
 elif [[ $option == 2 ]]; then
-gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/final_01/intrusion/pentest-sousreseau.sh
+gnome-terminal -- bash -c intrusion/pentest-sousreseau.sh
 
 elif [[ $option == 3 ]]; then
-gnome-terminal -- bash -c /root/Partage/OTHER/script/ms17-010/final_01/intrusion/pentest-global.sh
+gnome-terminal -- bash -c intrusion/pentest-global.sh
 
 else
 printf "\e[1;93m [!] Invalid option!\e[0m\n"
