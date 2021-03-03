@@ -91,32 +91,28 @@ if [[ ${#hash} -eq 128 ]] ; then
 		fi
 
 	elif [[ "${hash: -1}" == "=" ]]; then
-	echo ""
-	echo "Base64 hashtype detected"
-	echo ""
-	sleep 1
-	echo "Password Found : "
-	echo $hash | base64 -d
+		echo ""
+		echo "Base64 hashtype detected"
+		echo ""
+		sleep 1
+		echo "Password Found : "
+		echo $hash | base64 -d
 
 	# Potentiellement changer le sens et dire : si la variable ne contient pas : abcdef et 0-9 alors ; A REVOIR
 	elif [[ $hash == *[abcdef]* ]] && [[ $hash =~ [0-9] ]] || [[ "${hash:0:1}" == "x"  ]]; then
-	echo ""
-	echo "Hexa hashtype detected"
-        read -p  $"Do you want to use the default wordlist (y/n) ? " choice
-                if [[ "$choice" = "n" ]] || [[ "$choice" = "no" ]] ;then
-                echo ""
-                read -p $"Please enter you're wordlist's name : " wordlist
-                        if [ -f "$wordlist" ]; then
-                        hashcat -m 0 $hash -o result.txt $wordlist --force --potfile-disable
-                        else
-                        echo "Error file"
-                        fi
-                elif [[ "$choice" = "y" ]] || [[ "$choice" = "yes" ]] ;then
-                hashcat -m 0 $hash -o result.txt rockyou.txt --force --potfile-disable
-                fi
+		echo ""
+		echo "Hexa hashtype detected"
+		echo ""
+		sleep 1
+		echo "Password Found : "
+		echo $hash | xxd -r -p
 
 	else
 	echo "no hash detected"
+	read -p $"Would you like to restart (y/n) ? " choice
+		if [[ "$choice" = "y" ]] || [[ "$choice" = "yes" ]] ;then
+		./hashdetector.sh
+		fi
 
 fi
 
